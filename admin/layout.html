@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1">
+		<title>{% block title %}{% endblock %}</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+	</head>
+	<body class="admin">
+        <header>
+            <h1>Admin Panel</h1>
+            <a class="responsive-toggle" href="#">
+                <i class="fas fa-bars"></i>
+            </a>
+        </header>
+        <aside class="responsive-width-100 responsive-hidden">
+        	<a href="{{ url_for('home') }}"><i class="fas fa-home"></i>BestSeller Home</a>
+            <a href="{{ url_for('admin') }}"><i class="fas fa-users"></i>Accounts</a>
+            <a href="{{ url_for('admin_emailtemplate') }}"><i class="fas fa-envelope"></i>Email Template</a>
+             <a href="{{ url_for('client_reports') }}"><i class="fas fa-chart-line"></i>Client Reports</a>
+              <a href="{{ url_for('login_reports') }}"><i class="fas fa-chart-pie"></i>Login Reports</a>
+               <a href="{{ url_for('usage_reports') }}"><i class="fas fa-chart-area"></i>Usage Reports</a>
+            <a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i>Log Out</a>
+        </aside>
+        <main class="responsive-width-100">
+			{% block content %}{% endblock %}
+		</main>
+		<script>
+		document.querySelector(".responsive-toggle").onclick = function(event) {
+			event.preventDefault();
+			var aside_display = document.querySelector("aside").style.display;
+			document.querySelector("aside").style.display = aside_display == "flex" ? "none" : "flex";
+		};
+		</script>
+	</body>
+</html>

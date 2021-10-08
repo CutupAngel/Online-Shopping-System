@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1">
+		<title>{% block title %}{% endblock %}</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+	</head>
+	<body class="loggedin">
+		<nav class="navtop">
+			<div>
+				<h1>BestSeller Creator</h1>
+                <a href="{{ url_for('home') }}"><i class="fas fa-home"></i>Home</a>
+                <a href="{{ url_for('rewrite') }}"><i class="fas fa-edit"></i>ReWrite</a>
+                <a href="{{ url_for('covercompare') }}"><i class="fas fa-portrait"></i>Cover Compare</a>
+                <a href="{{ url_for('tagging') }}"><i class="fas fa-bookmark"></i>Tagging</a>
+            	<a href="{{ url_for('preview') }}"><i class="fas fa-book"></i></i>Preview</a>
+				<a href="{{ url_for('profile') }}"><i class="fas fa-user-circle"></i>Profile</a>
+				{% if role == 'Admin' %}
+				<a href="{{ url_for('admin') }}"><i class="fas fa-cog"></i>Admin</a>
+				{% endif %}
+				<a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i>Logout</a>
+			</div>
+		</nav>
+		<div class="content">
+			{% block content %}{% endblock %}
+		</div>
+	</body>
+</html>

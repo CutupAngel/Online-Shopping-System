@@ -1,0 +1,14 @@
+{% extends 'admin/layout.html' %}
+
+{% block title %}Email Template{% endblock %}
+
+{% block content %}
+<h2>Email Template</h2>
+
+<div class="content-block">
+    <form action="" method="post" class="form responsive-width-100">
+        <textarea name="content">{{ content }}</textarea>
+        <input type="submit" value="Save">
+    </form>
+</div>
+{% endblock %}
